@@ -1,17 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Login = () => {
+const Register = () => {
     return (
         <div class="hero min-h-screen">
             <div class="card flex-shrink-0 w-full max-w-lg shadow-2xl bg-base-100">
-                <h3 className='text-secondary text-3xl mx-auto mt-4'>Please Login</h3>
+                <h3 className='text-secondary text-3xl mx-auto mt-4'>Sign Up</h3>
                 <div class="card-body">
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">Name</span>
+                        </label>
+                        <input type="text" placeholder="name" class="input input-bordered" />
+                    </div>
+
                     <div class="form-control">
                         <label class="label">
                             <span class="label-text">Email</span>
                         </label>
-                        <input type="text" placeholder="email" class="input input-bordered" />
+                        <input type="email" placeholder="email" class="input input-bordered" />
                     </div>
 
                     <div class="form-control">
@@ -25,11 +32,11 @@ const Login = () => {
                     </div>
 
                     <div class="form-control mt-6">
-                        <button class="btn btn-accent">Login</button>
+                        <button class="btn btn-accent">Sign Up</button>
                     </div>
 
-                    <p className='text-center'>New to Doctors portal?
-                        <Link to={'/register'} className='text-secondary ml-2'>please register</Link>
+                    <p className='text-center'>Already have an account?
+                        <Link to={'/login'} className='text-secondary ml-2'>please login</Link>
                     </p>
 
                     <div class="divider">OR</div>
@@ -43,4 +50,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Register;
