@@ -1,16 +1,38 @@
+import { format } from 'date-fns';
 import React from 'react';
 
-const BookingModal = () => {
+const BookingModal = ({ date, treatment, setTreatment }) => {
+    const { _id, name, slots } = treatment;
+    const handleFormModal = e => {
+        e.preventDefault();
+        const slot = e.target.slot.value;
+        const username = e.target.name.value;
+        const number = e.target.number.value;
+        const email = e.target.email.value;
+        console.log(name, slot, username, email, number);
+        setTreatment(null)
+    };
     return (
         <div>
-            <input type="checkbox" id="booking-modal" class="modal-toggle" />
-            <div class="modal modal-bottom sm:modal-middle">
-                <div class="modal-box">
-                    <h3 class="font-bold text-lg">Congratulations random Interner user!</h3>
-                    <p class="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
-                    <div class="modal-action">
-                        <label for="booking-modal" class="btn">Yay!</label>
-                    </div>
+            <input type="checkbox" id="booking-modal" className="modal-toggle" />
+            <div className="modal modal-bottom sm:modal-middle">
+                <div className="modal-box">
+                    <label for="booking-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                    <h3 className="font-semibold text-lg text-accent">Booking for: {name}</h3>
+
+
+                    <form onSubmit={handleFormModal} className='text-center mt-9'>
+                        <input type="text" disabled value={format(date, 'PP')} className="input input-bordered input-info w-full mb-5" />
+                        <select name='slot' className="select select-info w-full mb-5">
+                            {
+                                slots.map(slot => <option value={slot}>{slot}</option>)
+                            }
+                        </select>
+                        <input name='username' type="text" placeholder="name" className="input input-bordered input-info w-full mb-5" />
+                        <input name='number' type="number" placeholder="Phone number" className="input input-bordered input-info w-full mb-5" />
+                        <input name='email' type="email" placeholder="email address" className="input input-bordered input-info w-full mb-5" />
+                        <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg w-full">Submit</button>
+                    </form>
                 </div>
             </div>
         </div>
