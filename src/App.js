@@ -10,6 +10,7 @@ import Register from './pages/Page/Login/Register';
 import Reviews from './pages/Page/Reviews/Reviews';
 import Navbar from './pages/SharedPage/Navbar/Navbar';
 import NotFound from './pages/SharedPage/NotFound/NotFound';
+import RequireAuth from './pages/SharedPage/RequireAuth/RequireAuth';
 
 function App() {
   return (
@@ -18,7 +19,11 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/about' element={<About></About>}></Route>
-        <Route path='/appointment' element={<Appointment></Appointment>}></Route>
+        <Route path='/appointment' element={
+          <RequireAuth>
+            <Appointment></Appointment>
+          </RequireAuth>
+        }></Route>
         <Route path='/reviews' element={<Reviews></Reviews>}></Route>
         <Route path='/contact' element={<Contact></Contact>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
@@ -19,17 +19,28 @@ const Login = () => {
     const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
     const navigate = useNavigate();
     const location = useLocation();
-
     let from = location.state?.from?.pathname || "/";
 
-    if (user) {
-        navigate(from, { replace: true });
+    useEffect(() => {
+        if (user || user1) {
+            navigate(from, { replace: true });
+        };
+    }, [user, user1, from, navigate]);
+
+    if (loading || loading1) {
+        return <button className="btn btn-square loading"></button>;
+    };
+
+    if (user || user1) {
+        console.log(user, user1);
+        navigate('/appointment');
     };
     //erroe message
     let errorElement;
-    if (error) {
-        errorElement = <p className='text-danger'>Error: {error?.message}</p>
+    if (error || error1) {
+        errorElement = <p className='text-danger'>{error?.message}</p>
     };
+
 
     const handleEmailBlur = e => {
         setEmail(e.target.value);
@@ -38,9 +49,12 @@ const Login = () => {
     const handleLoginForm = e => {
         e.preventDefault();
         const password = e.target.password.value;
-        console.log(email, password);
         signInWithEmailAndPassword(email, password);
-        navigate('/appointment')
+        if (!user) {
+            toast.error('Email or Password is incorrect!!');
+        } else {
+            navigate('/appointment');
+        }
     };
     //Password Reset Email sending
     const handleResetPass = async () => {
@@ -88,7 +102,7 @@ const Login = () => {
                         <Link to={'/register'} className='text-secondary ml-2'>please register</Link>
                     </p>
                     <p className="text-center ">
-                        <button onClick={handleResetPass} className="label-text-alt link link-hover text-center">Forgot password?</button>
+                        <button onClick={handleResetPass} className="label-text-alt link link-hover text-center text-primary ">Forgot password?</button>
                         <ToastContainer />
                     </p>
 

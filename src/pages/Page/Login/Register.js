@@ -1,30 +1,54 @@
 import { async } from '@firebase/util';
 import React from 'react';
 import { useNavigation } from 'react-day-picker';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useAuthState, useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 import auth from '../../../firebase.init';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
-    const navigate = useNavigate()
+    const [user] = useAuthState(auth);
+    const navigate = useNavigate();
+    const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
     const [
         createUserWithEmailAndPassword,
-        user,
+        user1,
         loading,
         error,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+    const [updateProfile, updating, UpdateError] = useUpdateProfile(auth);
+
+    if (loading || updating || gloading) {
+        return <button className = "btn btn-square loading"></button >;
+    };
+    let errorElement;
+    if (error || gerror) {
+        errorElement = <p className='text-danger'>{error?.message}</p>
+    };
+    if (user || guser) {
+        console.log(user, user1);
+        navigate('/appointment');
+    }
 
     const handleRegisterForm = async (e) => {
         e.preventDefault();
         const name = e.target.name.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
-        console.log(name, email, password);
-        await createUserWithEmailAndPassword(email, password);
-        navigate('/')
+        const Cpassword = e.target.Cpassword.value
 
 
-    }
+        if (password !== Cpassword) {
+            toast.error('Two password must have to be same');
+            return;
+        } else {
+            await createUserWithEmailAndPassword(email, password);
+            await updateProfile({ displayName: name });
+            navigate('/appointment');
+        }
+    };
+
     return (
         <div className="hero min-h-screen">
             <div className="card flex-shrink-0 w-full max-w-lg shadow-2xl bg-base-100">
@@ -52,8 +76,17 @@ const Register = () => {
                             <input name='password' type="password" placeholder="password" className="input input-bordered" />
                         </div>
 
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Confirm Password</span>
+                            </label>
+                            <input name='Cpassword' type="password" placeholder="confirm password" className="input input-bordered" />
+                        </div>
+                        {errorElement}
+
                         <div className="form-control mt-6">
                             <input className="btn btn-accent" type="submit" value="Sign Up" />
+                            <ToastContainer />
                         </div>
 
                     </form>
@@ -62,7 +95,7 @@ const Register = () => {
                     </p>
 
                     <div className="divider">OR</div>
-                    <button className="btn btn-outline btn-accent w-full">
+                    <button onClick={() => signInWithGoogle()} className="btn btn-outline btn-accent w-full">
                         Continue with Google
                     </button>
                 </div>
