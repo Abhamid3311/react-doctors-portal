@@ -13,12 +13,9 @@ const Navbar = () => {
         <li><Link to='/reviews'>Reviews</Link></li>
         <li><Link to='/contact'>Contact</Link></li>
         <li>{user ? <button className="btn btn-active btn-ghost" onClick={() => signOut(auth)}>Sign Out</button> : <Link to='/login'>Login</Link>}</li>
-
-
-
-
-
     </>;
+
+
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
@@ -28,7 +25,6 @@ const Navbar = () => {
                     </label>
                     <ul tabIndex="0" className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box ">
                         {menuItems}
-
                     </ul>
                 </div>
                 <Link to='/appointment' className="btn btn-ghost normal-case text-xl">Doctors Portal</Link>
