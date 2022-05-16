@@ -6,9 +6,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import auth from '../../../firebase.init';
 import 'react-toastify/dist/ReactToastify.css';
+import useToken from '../../../hooks/useToken';
 
 const Register = () => {
-    const [user] = useAuthState(auth);
+
     const navigate = useNavigate();
     const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
     const [
@@ -19,15 +20,17 @@ const Register = () => {
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
     const [updateProfile, updating, UpdateError] = useUpdateProfile(auth);
 
+    const [token] = useToken(guser || user1);
+
     if (loading || updating || gloading) {
-        return <button className = "btn btn-square loading"></button >;
+        return <button className="btn btn-square loading"></button >;
     };
     let errorElement;
     if (error || gerror) {
         errorElement = <p className='text-danger'>{error?.message}</p>
     };
-    if (user || guser) {
-        console.log(user, user1);
+    if (token) {
+
         navigate('/appointment');
     }
 
@@ -45,7 +48,7 @@ const Register = () => {
         } else {
             await createUserWithEmailAndPassword(email, password);
             await updateProfile({ displayName: name });
-            navigate('/appointment');
+
         }
     };
 
