@@ -4,6 +4,8 @@ import { toast } from 'react-toastify';
 const UserRow = ({ user, refetch, index }) => {
     const { email, role } = user;
 
+
+    //Make Admin
     const makeAdmin = () => {
         fetch(`http://localhost:5000/user/admin/${email}`, {
             method: 'PUT',
@@ -15,12 +17,8 @@ const UserRow = ({ user, refetch, index }) => {
                 return res.json()
             })
             .then(data => {
-                if (data.modfiedCount > 0) {
-                    refetch();
-                    console.log(data);
-                    toast.success('Successfully made and admin');
-                };
-
+                refetch();
+                toast.success('Successfully made and admin');
             })
     };
     return (

@@ -3,7 +3,14 @@ import { useQuery } from 'react-query';
 import UserRow from './UserRow';
 
 const Allusers = () => {
-    const { data: users, isLoading } = useQuery('users', () => fetch('http://localhost:5000/user').then(res => res.json()));
+
+    //Used React Query For Load All Users
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/user', {
+        method: 'GET',
+        headers: {
+            'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+        }
+    }).then(res => res.json()));
 
 
     if (isLoading) {
@@ -29,7 +36,7 @@ const Allusers = () => {
                                 user={user}
                                 key={user._id}
                                 index={index}
-
+                                refetch={refetch}
                             ></UserRow>)
                         }
                     </tbody>
