@@ -30,12 +30,12 @@ const Login = () => {
         };
     }, [token, from, navigate]);
 
-    if (loading || loading1) {
+    if (loading || loading1 || sending) {
         return <button className="btn btn-square loading"></button>;
     };
 
     if (token) {
-        console.log(user, user1);
+        // console.log(user, user1);
         navigate('/appointment');
     };
     //erroe message

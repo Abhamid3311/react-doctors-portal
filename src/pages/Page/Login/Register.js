@@ -30,7 +30,6 @@ const Register = () => {
         errorElement = <p className='text-danger'>{error?.message}</p>
     };
     if (token) {
-
         navigate('/appointment');
     }
 
