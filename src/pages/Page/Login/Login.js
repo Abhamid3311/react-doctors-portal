@@ -36,7 +36,7 @@ const Login = () => {
 
     if (token) {
         // console.log(user, user1);
-        navigate('/appointment');
+        navigate(from, { replace: true });
     };
     //erroe message
     let errorElement;
@@ -57,7 +57,7 @@ const Login = () => {
             toast.error('Email or Password is incorrect!!');
             return;
         } else {
-            navigate('/appointment');
+            navigate(from, { replace: true });
         }
     };
     //Password Reset Email sending
