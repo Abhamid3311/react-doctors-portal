@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from 'react-query';
+import DeleteCofirmModel from './DeleteCofirmModel';
 import DoctorsRow from './DoctorsRow';
 
 const ManageDoctors = () => {
+    const [deletingdoctor, setDeletingDoctor] = useState(null);
+
     const { data: doctors, isLoading, refetch } = useQuery('manageDoctors', () => fetch('http://localhost:5000/doctor', {
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -35,11 +38,18 @@ const ManageDoctors = () => {
                                 doctor={doctor}
                                 index={index}
                                 refetch={refetch}
+                                setDeletingDoctor={setDeletingDoctor}
                             ></DoctorsRow>)
                         }
                     </tbody>
                 </table>
             </div>
+            
+            {deletingdoctor && <DeleteCofirmModel
+                deletingdoctor={deletingdoctor}
+                refetch={refetch}
+                setDeletingDoctor={setDeletingDoctor}
+            ></DeleteCofirmModel>}
         </div>
     );
 };
