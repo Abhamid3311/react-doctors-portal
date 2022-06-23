@@ -18,6 +18,7 @@ const Login = () => {
         error1,
     ] = useSignInWithEmailAndPassword(auth);
     const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+    //Import token from hooks
     const [token] = useToken(user || user1);
 
     const navigate = useNavigate();
@@ -48,6 +49,7 @@ const Login = () => {
     const handleEmailBlur = e => {
         setEmail(e.target.value);
     }
+
     //handle Login Form
     const handleLoginForm = e => {
         e.preventDefault();
