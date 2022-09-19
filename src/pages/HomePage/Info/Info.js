@@ -9,21 +9,21 @@ const Info = () => {
     return (
         <div className='grid grid-cols-1 lg:grid-cols-3 gap-5 px-12'>
             <InfoCard
-                cardTitle="Opening Hours"
+                cardTitle="OPENING HOURS"
                 img={clock}
-                description="Lorem Ipsum is simply dummy text of the pri"
+                description="In most cases, the practice will be able to accommodate emergency walk-in appointments or offer a same-day appointment."
                 bgClass="bg-gradient-to-r from-secondary to-primary"
             ></InfoCard>
             <InfoCard
-                cardTitle="Opening Hours"
+                cardTitle="WORLD CLASS FACILITIES"
                 img={marker}
-                description="Lorem Ipsum is simply dummy text of the pri"
+                description="We always try to provide the highest quality services to our patients and strive for continuous quality improvements."
                 bgClass="bg-accent"
             ></InfoCard>
             <InfoCard
-                cardTitle="Opening Hours"
+                cardTitle="EXPERT DOCTORS"
                 img={phone}
-                description="Lorem Ipsum is simply dummy text of the pri"
+                description="Expert surgical care from the team you know and trust. Implants, root canals, extractions and more."
                 bgClass="bg-gradient-to-r from-secondary to-primary"
             ></InfoCard>
 
