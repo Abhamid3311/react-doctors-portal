@@ -30,8 +30,8 @@ const Testimonials = () => {
         }
     ]
     return (
-        <div>
-            <div className='flex justify-between items-center'>
+        <div className='mb-10'>
+            <div className='flex justify-between items-center '>
                 <div className='ml-10'>
                     <p className='text-primary'>Testimonial</p>
                     <h3 className='text-3xl font-bold text-accent'>What Our Patients Says</h3>
