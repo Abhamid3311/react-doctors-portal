@@ -1,8 +1,14 @@
 import React from 'react';
 import doctor from "../../../assets/images/doctor.png";
 import appoBg from "../../../assets/images/appointment.png";
+import { useNavigate } from 'react-router-dom';
 
 const HomeAppoint = () => {
+    const navigate = useNavigate();
+
+    const handleStartedBtn = () => {
+        navigate('/appointment');
+    };
     return (
         <section className='flex items-center justify-center' style={{
             background: `url(${appoBg})`
@@ -14,7 +20,10 @@ const HomeAppoint = () => {
                 <p className='text-xl text-primary '>Appointment</p>
                 <h3 className='text-4xl font-semibold text-white'>Make an appointment Today</h3>
                 <p className='text-x text-white mt-5'><small >It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsumis that it has a more-or-less normal distribution of letters,as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page</small></p>
-                <button className="btn btn-primary uppercase text-white font-bold bg-gradient-to-r from-secondary to-primary mt-5">Get Started</button>
+
+                <button
+                    onClick={handleStartedBtn}
+                    className="btn btn-primary uppercase text-white font-bold bg-gradient-to-r from-secondary to-primary mt-5">Get Started</button>
             </div>
         </section>
     );

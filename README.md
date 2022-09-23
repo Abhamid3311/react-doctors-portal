@@ -33,5 +33,10 @@ This project Created By React [Dental Care](https://doctors-portal-49e67.web.app
 * React query
 * React Toastify
 * Swiper Js
+* Node js
+* Express js
+* MongoDB
+
+
 
 
