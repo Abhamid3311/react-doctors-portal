@@ -21,6 +21,7 @@ import RequireAdmin from './pages/SharedPage/RequireAdmin';
 import AddDoctor from './pages/Page/Dashboard/AddDoctor';
 import ManageDoctors from './pages/Page/Dashboard/ManageDoctors';
 import Payment from './pages/Page/Dashboard/Payment';
+import Footer from './pages/SharedPage/Footer/Footer';
 
 function App() {
   return (
@@ -61,6 +62,8 @@ function App() {
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
+
+      <Footer />
 
       <ToastContainer></ToastContainer>
     </div>

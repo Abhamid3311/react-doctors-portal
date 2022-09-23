@@ -3,7 +3,7 @@ import footerBg from '../../../assets/images/footer.png';
 
 const Footer = () => {
     return (
-        <div>
+        <div className='mt-10 border-t-2'>
             <footer className="footer mt-10 p-10  text-base-content bg-cover bg-center " style={{
                 background: `url(${footerBg})`
             }}>
@@ -27,7 +27,7 @@ const Footer = () => {
             </footer>
             <footer className="footer footer-center p-4 bg-base-300 text-base-content">
                 <div>
-                    <p>Copyright © 2022 - All right reserved by Doctors Portal Ltd</p>
+                    <p>Copyright © 2022 - All right reserved by Dental Care Ltd</p>
                 </div>
             </footer>
         </div>

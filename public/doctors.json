@@ -1,0 +1,44 @@
+[
+    {
+        "id": 101,
+        "name": "Dr. Albert Milan",
+        "designation": "CEO, The Dental Care",
+        "achivments": "BDS, MPH (DHAKA), FICD (USA), FPFA (USA). Life Member Bangladesh Dental Society, ADA, IDA",
+        "img": "https://t4.ftcdn.net/jpg/00/69/48/11/360_F_69481147_vNyLF2u20piFO2DzaNbd0Fb5oz0i9egv.jpg"
+    },
+    {
+        "id": 102,
+        "name": "Dr. Kaile Abort",
+        "designation": "Senior Consultant",
+        "achivments": "Fellow, World Federation of Orthodontists Associate Professor and HOD Department of Orthodontics",
+        "img": "https://media.istockphoto.com/photos/portrait-of-confident-young-medical-doctor-on-blue-background-picture-id1161336374?k=20&m=1161336374&s=612x612&w=0&h=ER2Gs06udn4kBPUy8SwLQR2su0GsRWe0kRHZvDbcQCc="
+    },
+    {
+        "id": 103,
+        "name": "Dr. Jessica Rose",
+        "designation": "Consultant",
+        "achivments": "BDS (DU), MPH (NSU), M.Sc in Oral Biology (MU Thailand) BM & DC REG:3343",
+        "img": "https://img.freepik.com/free-photo/pleased-young-female-doctor-wearing-medical-robe-stethoscope-around-neck-standing-with-closed-posture_409827-254.jpg?w=2000"
+    },
+    {
+        "id": 104,
+        "name": "DR. SUMAIYA TASNIM",
+        "designation": "Consultant",
+        "achivments": "BDS, PGT in OMFS BM&DC REG: 8294",
+        "img": "https://www.thedentalcare.com.bd/wp-content/uploads/2021/02/doctor-4-400x480.png"
+    },
+    {
+        "id": 105,
+        "name": "Dr. Daniel Milon",
+        "designation": "Dental Surgeon",
+        "achivments": "BDS, MPH (DHAKA), FICD (USA), FPFA (USA). Life Member Bangladesh Dental Society, ADA, IDA",
+        "img": "https://www.freepnglogos.com/uploads/doctor-png/doctor-bulk-billing-doctors-chapel-hill-health-care-medical-3.png"
+    },
+    {
+        "id": 106,
+        "name": "Dr.Mizanur Rahman",
+        "designation": "Dental Surgeon",
+        "achivments": "BDS, MPH (DHAKA), FICD (USA), FPFA (USA). Life Member Bangladesh Dental Society, ADA, IDA",
+        "img": "https://i0.wp.com/parkview.com.bd/wp-content/uploads/2018/09/DrMuhammadTaiyab-Neuromedicine.jpg?fit=600%2C600&ssl=1"
+    }
+]
