@@ -1,34 +1,28 @@
 import React from 'react';
-import people1 from '../../../assets/images/people1.png';
-import people2 from '../../../assets/images/people2.png';
-import people3 from '../../../assets/images/people3.png';
+import { useRef, useState } from 'react';
+import { useEffect } from 'react';
+import { Swiper, SwiperSlide } from "swiper/react";
 import quote from '../../../assets/icons/quote.svg';
 import Testimonial from './Testimonial';
 
+
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import './Testimonial.css';
+
+
+import { Autoplay, Pagination, Navigation } from "swiper";
+
+
 const Testimonials = () => {
-    const reviews = [
-        {
-            id: 1,
-            name: "Winson Herry",
-            city: "London",
-            review: "It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content",
-            img: people1
-        },
-        {
-            id: 2,
-            name: "Jara Langford",
-            city: "California",
-            review: "It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content",
-            img: people2
-        },
-        {
-            id: 3,
-            name: "Amber Hard",
-            city: "Manchester",
-            review: "It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content",
-            img: people3
-        }
-    ]
+    const [reviews, setReviews] = useState([]);
+    useEffect(() => {
+        fetch("testimonial.json")
+            .then(res => res.json())
+            .then(data => setReviews(data))
+    }, []);
+
     return (
         <div className='mb-10'>
             <div className='flex justify-between items-center '>
@@ -41,13 +35,47 @@ const Testimonials = () => {
                 </div>
             </div>
 
-            <div className='grid grid-cols-1 lg:grid-cols-3 gap-5 px-12'>
-                {
-                    reviews.map(reviews => <Testimonial
-                        key={reviews.id}
-                        reviews={reviews}
-                    ></Testimonial>)
-                }
+            <div>
+                <Swiper
+                    slidesPerView={"auto"}
+                    centeredSlides={true}
+                    autoplay={{
+                        delay: 2500,
+                        disableOnInteraction: false,
+                    }}
+                    spaceBetween={30}
+                    loop={true}
+                    pagination={{
+                        clickable: true,
+                    }}
+                    navigation={true}
+                    breakpoints={{
+                        640: {
+                            slidesPerView: 1,
+                            spaceBetween: 20,
+                        },
+                        768: {
+                            slidesPerView: 2,
+                            spaceBetween: 40,
+                        },
+                        1024: {
+                            slidesPerView: 3,
+                            spaceBetween: 50,
+                        },
+                    }}
+                    modules={[Autoplay, Pagination, Navigation]}
+                    className="mySwiper"
+                >
+                    {
+                        reviews.map(reviews => <SwiperSlide> <Testimonial
+                            key={reviews.id}
+                            reviews={reviews}
+                        ></Testimonial> </SwiperSlide>)
+                    }
+
+
+                </Swiper>
+
             </div>
         </div>
     );

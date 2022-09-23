@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "name": "Winson Herry",
+        "city": "London",
+        "review": "It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content",
+        "img": "https://i.ibb.co/w4R82qw/people1.png"
+    },
+    {
+        "id": 2,
+        "name": "Jara Langford",
+        "city": "California",
+        "review": "It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content",
+        "img": "https://i.ibb.co/LY7sFn2/people2.png"
+    },
+    {
+        "id": 3,
+        "name": "Amber Hard",
+        "city": "Manchester",
+        "review": "It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content",
+        "img": " https://i.ibb.co/4Sfn8JS/people3.png"
+    },
+    {
+        "id": 1,
+        "name": "Winson Charchil",
+        "city": "London",
+        "review": "It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content",
+        "img": "https://i.ibb.co/w4R82qw/people1.png"
+    },
+    {
+        "id": 2,
+        "name": "Graham Ford",
+        "city": "California",
+        "review": "It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content",
+        "img": "https://i.ibb.co/LY7sFn2/people2.png"
+    },
+    {
+        "id": 3,
+        "name": "Steve Austin",
+        "city": "Manchester",
+        "review": "It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content",
+        "img": "https://i.ibb.co/4Sfn8JS/people3.png"
+    }
+]

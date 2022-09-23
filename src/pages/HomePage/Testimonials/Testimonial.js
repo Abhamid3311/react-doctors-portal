@@ -3,7 +3,7 @@ import React from 'react';
 const Testimonial = ({ reviews }) => {
     const { name, img, review, city } = reviews;
     return (
-        <div className='card w-90 bg-base-100 p-6 shadow-xl hover:drop-shadow-2xl'>
+        <div className='card w-90 bg-base-100 text-left p-6 shadow-xl hover:drop-shadow-2xl'>
             <div>
                 <p>{review}</p>
                 <div className="rating">
