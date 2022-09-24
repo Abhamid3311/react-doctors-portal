@@ -19,7 +19,7 @@ import { toast } from 'react-toastify';
 
 const AddDoctor = () => {
     const { register, handleSubmit, reset } = useForm();
-    const { data: services, isLoading } = useQuery("services", () => fetch('http://localhost:5000/service').then(res => res.json()));
+    const { data: services, isLoading } = useQuery("services", () => fetch('https://dental-point-server.onrender.com/service').then(res => res.json()));
 
     const imageStorageKey = 'ee6d8d3b6e5ffa30e08a83587c91f8d0';
 
@@ -47,10 +47,10 @@ const AddDoctor = () => {
                     };
                     console.log(doctor);
 
-                    
+
                     //Send To database
 
-                    fetch('http://localhost:5000/doctor', {
+                    fetch('https://dental-point-server.onrender.com/doctor', {
                         method: "POST",
                         headers: {
                             'content-type': 'application/json',

@@ -11,7 +11,7 @@ const stripePromise = loadStripe('pk_test_51LE5gCAejo31u0PYKhnGEu5B2laiqXv7fpXNA
 
 const Payment = () => {
     const { id } = useParams();
-    const url = `http://localhost:5000/booking/${id}`;
+    const url = `https://dental-point-server.onrender.com/booking/${id}`;
     const { data: appointment, isLoading } = useQuery(['booking', id], () => fetch(url, {
         method: 'GET',
         headers: {

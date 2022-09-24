@@ -5,6 +5,7 @@ import { AiOutlineMail, AiFillPhone } from 'react-icons/ai';
 const Contact = () => {
     return (
         <div>
+            
             <h3 className='text-center text-4xl font-semibold text-accent my-5'>Send Us An Email</h3>
 
             <div className="hero">
@@ -67,8 +68,12 @@ const Contact = () => {
                         </div>
 
                     </div>
+
+
                 </div>
             </div>
+
+            
         </div>
     );
 };

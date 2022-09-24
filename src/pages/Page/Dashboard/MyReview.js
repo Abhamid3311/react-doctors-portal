@@ -15,7 +15,7 @@ const MyReview = () => {
 
 
         //Send To database
-        fetch('http://localhost:5000/review', {
+        fetch('https://dental-point-server.onrender.com/review', {
             method: "POST",
             headers: {
                 'content-type': 'application/json',

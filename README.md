@@ -15,6 +15,8 @@ This project Created By React [Dental Care](https://doctors-portal-49e67.web.app
 * User can see his order and also can give reviews.
 * User can payment his appointment money from clicking pay button at My order page.
 * Implemented Register and Login by using Firebase.
+* Admin Route: All Users, Add Doctor, Manage Doctors.
+* Users Route: My Appointment, Add Review, My History.
 
 ## Used Technologies
 
@@ -36,6 +38,7 @@ This project Created By React [Dental Care](https://doctors-portal-49e67.web.app
 * Node js
 * Express js
 * MongoDB
+* Render For Server Hosting
 
 
 

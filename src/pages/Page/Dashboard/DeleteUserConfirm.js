@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 const DeleteUserConfirm = ({ deletingUser, setDeleteingUser, refetch }) => {
     const { email } = deletingUser;
     const handleDeleteUser = () => {
-        fetch(`http://localhost:5000/user/${email}`, {
+        fetch(`https://dental-point-server.onrender.com/user/${email}`, {
             method: "DELETE",
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`

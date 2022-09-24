@@ -9,7 +9,7 @@ const AvailableAppointments = ({ date, setDate }) => {
     const formatedDate = format(date, 'PP');
 
     //Get Available Date
-    const { data: services, isLoading, refetch } = useQuery(['available', formatedDate], () => fetch(`http://localhost:5000/available?date=${formatedDate}`)
+    const { data: services, isLoading, refetch } = useQuery(['available', formatedDate], () => fetch(`https://dental-point-server.onrender.com/available?date=${formatedDate}`)
         .then(res => res.json())
     );
 

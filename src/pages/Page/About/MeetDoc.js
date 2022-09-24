@@ -6,7 +6,7 @@ import SingleDoc from './SingleDoc';
 const MeetDoc = () => {
     const [doctors, setDoctors] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/doctor', {
+        fetch('https://dental-point-server.onrender.com/doctor', {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -15,7 +15,7 @@ const MeetDoc = () => {
             .then(res => res.json())
             .then(doc => setDoctors(doc))
     }, []);
-    
+
 
     return (
         <div>

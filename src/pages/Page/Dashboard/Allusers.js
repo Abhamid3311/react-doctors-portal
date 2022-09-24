@@ -8,7 +8,7 @@ const Allusers = () => {
     const [deletingUser, setDeleteingUser] = useState(null);
 
     //Used React Query For Load All Users
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/user', {
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://dental-point-server.onrender.com/user', {
         method: 'GET',
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -18,7 +18,8 @@ const Allusers = () => {
 
     if (isLoading) {
         return <p>Loading....</p>
-    }
+    };
+    
     return (
         <div>
             <h2>All Users : {users.length}</h2>

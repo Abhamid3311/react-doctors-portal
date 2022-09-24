@@ -1,32 +1,32 @@
 import React from 'react';
-import { useRef, useState } from 'react';
-import { useEffect } from 'react';
+import { useRef} from 'react';
+import { useQuery } from 'react-query';
+
 import { Swiper, SwiperSlide } from "swiper/react";
-import quote from '../../../assets/icons/quote.svg';
-import Testimonial from './Testimonial';
-
-
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import './Testimonial.css';
-
-
 import { Autoplay, Pagination, Navigation } from "swiper";
+
+import './Testimonial.css';
+import Testimonial from './Testimonial';
+import quote from '../../../assets/icons/quote.svg';
+
+
 
 
 const Testimonials = () => {
-    const [reviews, setReviews] = useState([]);
-    useEffect(() => {
-        fetch("http://localhost:5000/review", {
-            method: 'GET',
-            headers: {
-                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
-            }
-        })
-            .then(res => res.json())
-            .then(data => setReviews(data))
-    }, []);
+    const { data: reviews, isLoading, refetch } = useQuery('review', () => fetch('https://dental-point-server.onrender.com/review', {
+        method: 'GET',
+        headers: {
+            'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+        }
+    }).then(res => res.json()));
+
+
+    if (isLoading) {
+        return <p>Loading...</p>
+    };
 
     return (
         <div className='mb-10'>

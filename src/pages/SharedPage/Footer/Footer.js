@@ -1,6 +1,7 @@
 import React from 'react';
 import footerBg from '../../../assets/images/footer.png';
 
+
 const Footer = () => {
     return (
         <div className='mt-10 border-t-2'>

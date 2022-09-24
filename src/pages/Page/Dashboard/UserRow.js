@@ -8,7 +8,7 @@ const UserRow = ({ user, refetch, index, setDeleteingUser }) => {
 
     //Make Admin
     const makeAdmin = () => {
-        fetch(`http://localhost:5000/user/admin/${email}`, {
+        fetch(`https://dental-point-server.onrender.com/user/admin/${email}`, {
             method: 'PUT',
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`

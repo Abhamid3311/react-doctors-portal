@@ -23,6 +23,7 @@ import ManageDoctors from './pages/Page/Dashboard/ManageDoctors';
 import Payment from './pages/Page/Dashboard/Payment';
 import Footer from './pages/SharedPage/Footer/Footer';
 
+
 function App() {
   return (
     <div className='max-w-7xl mx-auto'>

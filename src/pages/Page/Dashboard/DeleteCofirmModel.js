@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 const DeleteCofirmModel = ({ deletingdoctor, refetch, setDeletingDoctor }) => {
     const { name, email } = deletingdoctor;
     const handleDeleteDoctor = () => {
-        fetch(`http://localhost:5000/doctor/${email}`, {
+        fetch(`https://dental-point-server.onrender.com/doctor/${email}`, {
             method: "DELETE",
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -27,7 +27,7 @@ const DeleteCofirmModel = ({ deletingdoctor, refetch, setDeletingDoctor }) => {
                 <div class="modal-box">
                     <h3 class="font-bold text-lg">Hello User!! Plese Confirm</h3>
                     <p class="py-4 text-red-500">Are You Sure You Want To delete {name} ?</p>
-                    
+
                     <div class="modal-action">
                         <button onClick={() => handleDeleteDoctor()} class="btn btn-xs btn-error text-white">Delete</button>
                         <label for="delete-confirm-modal" class="btn btn-xs">Cancel</label>

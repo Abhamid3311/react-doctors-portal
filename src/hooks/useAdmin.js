@@ -6,7 +6,7 @@ const useAdmin = user => {
     useEffect(() => {
         const email = user?.email;
         if (email) {
-            fetch(`http://localhost:5000/admin/${email}`, {
+            fetch(`https://dental-point-server.onrender.com/admin/${email}`, {
                 method: 'GET',
                 headers: {
                     'content-type': 'application/json',
@@ -20,7 +20,7 @@ const useAdmin = user => {
                 })
         }
     }, [user]);
-    return [admin,adminLoading];
+    return [admin, adminLoading];
 };
 
 export default useAdmin;

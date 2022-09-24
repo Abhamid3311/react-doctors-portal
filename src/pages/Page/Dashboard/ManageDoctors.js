@@ -6,7 +6,7 @@ import DoctorsRow from './DoctorsRow';
 const ManageDoctors = () => {
     const [deletingdoctor, setDeletingDoctor] = useState(null);
 
-    const { data: doctors, isLoading, refetch } = useQuery('manageDoctors', () => fetch('http://localhost:5000/doctor', {
+    const { data: doctors, isLoading, refetch } = useQuery('manageDoctors', () => fetch('https://dental-point-server.onrender.com/doctor', {
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
         }
@@ -44,7 +44,7 @@ const ManageDoctors = () => {
                     </tbody>
                 </table>
             </div>
-            
+
             {deletingdoctor && <DeleteCofirmModel
                 deletingdoctor={deletingdoctor}
                 refetch={refetch}
