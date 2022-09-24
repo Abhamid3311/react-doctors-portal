@@ -5,7 +5,7 @@ const SingleDoc = ({ doc }) => {
     return (
         <div className="card w-90 bg-base-100 shadow-xl hover:drop-shadow-2xl">
             <figure className="px-10 pt-10">
-                <img src={img} alt="doc" className="h-54 rounded-xl" />
+                <img src={img} alt="doc" className="h-56 w-full rounded-xl" />
             </figure>
             <div className="card-body items-center text-center">
                 <h1 className="card-title">{name}</h1>

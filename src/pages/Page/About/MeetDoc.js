@@ -6,10 +6,16 @@ import SingleDoc from './SingleDoc';
 const MeetDoc = () => {
     const [doctors, setDoctors] = useState([]);
     useEffect(() => {
-        fetch('doctors.json')
+        fetch('http://localhost:5000/doctor', {
+            method: 'GET',
+            headers: {
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
             .then(res => res.json())
             .then(doc => setDoctors(doc))
     }, []);
+    
 
     return (
         <div>

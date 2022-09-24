@@ -41,10 +41,13 @@ const AddDoctor = () => {
                     const doctor = {
                         name: data.name,
                         email: data.email,
-                        speciality: data.speciality,
+                        achivments: data.achivments,
+                        designation: data.designation,
                         img: img
                     };
+                    console.log(doctor);
 
+                    
                     //Send To database
 
                     fetch('http://localhost:5000/doctor', {
@@ -81,8 +84,9 @@ const AddDoctor = () => {
             <form onSubmit={handleSubmit(onSubmit)} className="w-1/2 mx-auto">
                 <input {...register("name")} placeholder="name" class="input input-bordered input-info w-full max-w-md mb-5" required />
                 <input {...register("email")} placeholder="email" class="input input-bordered input-info w-full max-w-md mb-5" required />
+                <input {...register("achivments")} placeholder="achivments" class="input input-bordered input-info w-full max-w-md mb-5" required />
 
-                <select {...register("speciality")} class="input input-bordered input-info w-full max-w-md mb-5" required>
+                <select {...register("designation")} class="input input-bordered input-info w-full max-w-md mb-5" required>
                     {
                         services.map(service => <option
                             key={service._id}

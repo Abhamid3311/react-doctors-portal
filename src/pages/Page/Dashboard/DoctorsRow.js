@@ -1,10 +1,11 @@
 import React from 'react';
 import { toast } from 'react-toastify';
+import { AiFillDelete } from 'react-icons/ai';
 
 const DoctorsRow = ({ doctor, index, refetch, setDeletingDoctor }) => {
-    const { img, speciality, name, email } = doctor;
+    const { img, designation, name } = doctor;
 
-    
+
     return (
         <tr>
             <th>{index + 1}</th>
@@ -16,11 +17,15 @@ const DoctorsRow = ({ doctor, index, refetch, setDeletingDoctor }) => {
                 </div>
             </td>
             <td>{name}</td>
-            <td>{speciality}</td>
+            <td>{designation}</td>
             <td>
-                <label onClick={() => setDeletingDoctor(doctor)} for="delete-confirm-modal" class="btn btn-xs btn-error text-white ">Delete</label>
+                <label
+                    onClick={() => setDeletingDoctor(doctor)} for="delete-confirm-modal"
+                    class="btn btn-xs btn-ghost">
+                    <AiFillDelete className='text-red-700 text-3xl' />
+                </label>
 
-                
+
             </td>
         </tr>
     );
