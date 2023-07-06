@@ -30,9 +30,9 @@ const Testimonials = () => {
 
     return (
         <div className='mb-10'>
-            <div className='flex justify-between items-center '>
-                <div className='ml-10'>
-                    <p className='text-primary'>Testimonial</p>
+            <div className='flex justify-between items-center  max-w-7xl mx-auto'>
+                <div className='ml-10 '>
+                    <p className='text-primary '>Testimonial</p>
                     <h3 className='text-3xl font-bold text-accent'>What Our Patients Says</h3>
                 </div>
                 <div>
@@ -40,7 +40,7 @@ const Testimonials = () => {
                 </div>
             </div>
 
-            <div>
+            <div className='px-4 max-w-7xl mx-auto'>
                 <Swiper
                     slidesPerView={"auto"}
                     centeredSlides={true}
@@ -61,11 +61,11 @@ const Testimonials = () => {
                         },
                         768: {
                             slidesPerView: 2,
-                            spaceBetween: 40,
+                            spaceBetween: 20,
                         },
                         1024: {
                             slidesPerView: 3,
-                            spaceBetween: 50,
+                            spaceBetween: 30,
                         },
                     }}
                     modules={[Autoplay, Pagination, Navigation]}
